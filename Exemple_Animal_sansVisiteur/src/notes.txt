@@ -1,0 +1,57 @@
+
+SINGLE DISPATCH
+At run time, the compiler will figure out which class chien and chat belongs to and 
+it will call their respective communiquer method. This is called polymorphism and 
+this is what single distach is.
+
+
+Animal chien = new Chien();
+La variable chien a pour type statique Animal et pour type dynamique Chien
+Le compilateur pense que chien est de type Animal. Le vrai type, Chien donc, 
+est déduit à l'exécution du programme.
+
+
+
+STATIC TYPING v/s DYNAMIC TYPING
+https://stackoverflow.com/a/34231409
+
+
+WHAT IS A CONCRETE CLASS?
+Members of the class are accessed through the instance of the class. 
+This type of class is also called a concrete class because it is complete. 
+It has defined the methods and also implemented them.
+
+
+EARLY BINDING v/s LATE BINDING
+Association appel de méthode – méthode (« method-call binding »)
+Dans un langage procédural, c’est le compilateur qui établit cette association (« early binding »)
+
+En Java, l’invocation d’une méthode est associée au corps de la bonne 
+version de la méthode dynamiquement, à l’exécution (« late binding »)
+
+En Java, le compilateur n’a aucune façon de savoir quelle version de la
+méthode doit être invoquée. Il faut attendre à l’exécution pour le savoir.
+
+Malheureusement Java et C++ n'implémentent pas le multiple dispatch : ils ne peuvent 
+pas déduire dynamiquement le type des arguments des méthodes.
+Pour pallier ce défaut nous allons simuler le multiple dispatch à l'aide du design pattern Double dispatch.
+
+
+
+DOUBLE DISPATCH
+Where double dispatch is not supported in OOP is the interaction of two objects to figure out
+what's gonna happen when two object interact with each other. 
+E.g, - whats the sound its gonna make when a dog and a cat interact with one another? 
+        - What's the sound its gonna make when a cat and a cat interact with one another?
+
+
+
+When the accept method is called in the program, its implementation is chosen based on both the 
+dynamic type of the element and the static type of the visitor. 
+
+When the associated visit method is called, its implementation is chosen based on both the dynamic 
+type of the visitor and the static type of the element, as known from within the implementation of 
+the accept method, which is the same as the dynamic type of the element.
+
+Thus, the implementation of the visit method is chosen based on both the dynamic type of the element 
+and the dynamic type of the visitor. This effectively implements double dispatch.
